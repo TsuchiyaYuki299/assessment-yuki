@@ -3,6 +3,7 @@ body {
 }
 
 h2 {
-  background-color: black;
-  color: white;
+  background-image: linear-gradient(to right, #111, #2066ac, #2c2c2c);
+  color: #fff;
+  padding: 10px;
 }
