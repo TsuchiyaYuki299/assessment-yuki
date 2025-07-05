@@ -1,3 +1,5 @@
+'use strict';
+
 let music = [
   { title: "BOW AND ARROW", url: "https://youtu.be/M-Eyhjkepy0?si=GuXATAl2hgozu_to" }, // ダミーのURLです
   { title: "がらくた - JUNK", url: "https://youtu.be/2mUC91bXt60?si=8S65Kq9SN6MlQWVv" },
