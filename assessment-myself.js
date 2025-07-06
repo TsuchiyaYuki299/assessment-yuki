@@ -41,18 +41,3 @@ async function displayRandomMusic() {
   }
 
 }
-
-
-
-
-// ランダムにアイテムを選んで表示する関数
-function displayRandomMusic() {
-  // 1.ランダムな数字を作る
-  const randomIndex = Math.floor(Math.random() * music.length);
-
-  // 2.その数字を使って、配列の中からアイテムを選ぶ
-  const selectedMusic = music[randomIndex];
-
-  // 3.選んだアイテムをHTMLに表示
-  randomMusicDisplay.innerHTML = `<a href="${selectedMusic.url}" target="_blank">${selectedMusic.title}</a>`;
-}
