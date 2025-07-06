@@ -4,9 +4,6 @@
 const randomMusicDisplay = document.getElementById('randomMusic');
 const artistNameInput = document.getElementById('artistName') // アーティスト名入力欄
 
-// APIキー（自分のものに置き換えてください）
-const API_KEY = 'ここをAPIキーに置き換えてください';
-
 // 曲を取得して表示する関数
 async function displayRandomMusic() {
     const artistName = artistNameInput.value;
@@ -15,18 +12,17 @@ async function displayRandomMusic() {
       return;
     }
 
-  // youtube APIにリクエストを送るURLを組み立てる
-    const searchWord = encodeURIComponent(artistName + '公式'); // "公式" をつけて検索精度を上げる
-    const requestURL = `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${searchWord}&type=video&key=${API_KEY}&maxResults=50`;
+    const requestURL = `/.netlify/functions/youtube?artistName=${encodeURIComponent(artistName)}`;
+
 
     try {
       // APIを呼び出してデータを取得
       const response = await fetch(requestURL);
       const data = await response.json();
     
-      if (data.items.length === 0) {
+      if (data.error || data.items.length === 0) {
         randomMusicDisplay.textContent = '該当する動画が見つかりませんでした。';
-        return;  
+        return;
       }
 
       // ランダムな動画を選択
