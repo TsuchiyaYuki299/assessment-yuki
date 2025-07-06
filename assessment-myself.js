@@ -2,7 +2,7 @@
 
 // アイテムを表示する場所を見つける
 const randomMusicDisplay = document.getElementById('randomMusic');
-const artistNameInput = document.getElementById('artistName') // アーティスト名入力欄
+const artistNameInput = document.getElementById('artistName'); // アーティスト名入力欄
 
 // 曲を取得して表示する関数
 async function displayRandomMusic() {
@@ -19,7 +19,6 @@ async function displayRandomMusic() {
       // APIを呼び出してデータを取得
       const response = await fetch(requestURL);
       const data = await response.json();
-    
       if (data.error || data.items.length === 0) {
         randomMusicDisplay.textContent = '該当する動画が見つかりませんでした。';
         return;
@@ -35,9 +34,9 @@ async function displayRandomMusic() {
 
       // HTMLに表示
       randomMusicDisplay.innerHTML = `<a href="${videoURL}" target="_blank">${title}</a>`;
-  } catch (error) {
-      console.error('エラーが発生しました:', error);
-      randomMusicDisplay.textContent = '曲の取得中にエラーが発生しました。';
+        } catch (error) {
+            console.error('エラーが発生しました:', error);
+            randomMusicDisplay.textContent = '曲の取得中にエラーが発生しました。';
   }
 
 }
